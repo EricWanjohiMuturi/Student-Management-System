@@ -1,0 +1,8 @@
+body{
+    font-family: "Montserrat", sans-serif !important;
+}
+
+.container .navbar-brand{
+    font-size: 20px;
+    padding-right: 200px;
+}
