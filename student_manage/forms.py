@@ -13,9 +13,9 @@ class StudentInfoForm(forms.ModelForm):
             "branch":"Branch"
         }
         widgets={
-            "fname":forms.TextInput(attrs={"class":"form-control"}),
-            "lname":forms.TextInput(attrs={"class":"form-control"}),
-            "email":forms.TextInput(attrs={"class":"form-control"}),
-            "phone":forms.TextInput(attrs={"class":"form-control"}),
-            "branch":forms.Select(attrs={"class":"form-control"}),
+            "fname":forms.TextInput(attrs={"class":"form-control mb-3"}),
+            "lname":forms.TextInput(attrs={"class":"form-control mb-3"}),
+            "email":forms.TextInput(attrs={"class":"form-control mb-3"}),
+            "phone":forms.TextInput(attrs={"class":"form-control mb-3"}),
+            "branch":forms.Select(attrs={"class":"form-control mb-3"}),
         }

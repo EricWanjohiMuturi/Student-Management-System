@@ -30,7 +30,7 @@
                 <td>{{ student.branch }}</td>
                 <td>
                     <!-- Button trigger modal --> 
-                    <button type="button" class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#viewModal{{ student.id }}"><i class="fa-solid fa-circle-info"></i> View</button>
+                    <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#viewModal{{ student.id }}"><i class="fa-solid fa-circle-info"></i> View</button>
                     <!-- modal student information -->
                       <!-- Modal -->
                       <div class="modal fade" id="viewModal{{ student.id }}" tabindex="-1" aria-labelledby="viewModalLabel{{ student.id }}" aria-hidden="true">
@@ -56,8 +56,29 @@
                           </div>
                         </div>
                       </div>
-                    <a type="button" class="btn btn-light btn-sm" href="{% url 'update' student.id %}"><i class="fa-solid fa-pen-to-square"></i> Update</a>
-                    <button type="button" class="btn btn-light btn-sm"><i class="fa-solid fa-trash"></i> Delete</button>
+                    <a type="button" class="btn btn-warning btn-sm" href="{% url 'update' student.id %}"><i class="fa-solid fa-pen-to-square"></i> Update</a>
+                    
+                    <!-- modal for the delete operation -->
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal{{student.id}}"><i class="fa-solid fa-trash"></i> Delete</button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="deleteModal{{student.id}}" tabindex="-1" aria-labelledby="deleteModalLabel{{student.id}}" aria-hidden="true">
+                      <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content bg-dark">
+                          <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="deleteModalLabel{{student.id}}">Confirm Delete</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                            <p>Are you sure you want to delete the Student Information of: <br><strong>{{student.fname}} {{student.lname}}</strong></p>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-danger">Delete</button>
+                            <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                 </td>
               </tr>
               {% endfor %}
