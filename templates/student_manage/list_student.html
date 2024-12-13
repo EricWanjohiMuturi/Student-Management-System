@@ -10,7 +10,7 @@
         <table class="table table-dark table-striped">
             <thead>
               <tr>
-                <th scope="col">#</th>
+                <th scope="col">Student ID</th>
                 <th scope="col">First Name</th>
                 <th scope="col">Last Name</th>
                 <th scope="col">Email</th>
@@ -29,8 +29,34 @@
                 <td>{{ student.phone }}</td>
                 <td>{{ student.branch }}</td>
                 <td>
-                    <button type="button" class="btn btn-light btn-sm"><i class="fa-solid fa-circle-info"></i> View</button>
-                    <button type="button" class="btn btn-light btn-sm"><i class="fa-solid fa-pen-to-square"></i> Edit</button>
+                    <!-- Button trigger modal --> 
+                    <button type="button" class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#viewModal{{ student.id }}"><i class="fa-solid fa-circle-info"></i> View</button>
+                    <!-- modal student information -->
+                      <!-- Modal -->
+                      <div class="modal fade" id="viewModal{{ student.id }}" tabindex="-1" aria-labelledby="viewModalLabel{{ student.id }}" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered ">
+                          <div class="modal-content bg-dark">
+                            <div class="modal-header">
+                              <h1 class="modal-title fs-5" id="viewModal{{ student.id }}">Student: {{ student.fname }} {{ student.lname }}</h1>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                              <ul>
+                                <li><strong> First Name:</strong> {{student.fname}}</li>
+                                <li><strong>Last Name:</strong>  {{ student.lname }}</li>
+                                <li><strong>Email:</strong> {{student.email }}</li>
+                                <li><strong>Phone Number:</strong>  {{ student.phone }}</li>
+                                <li><strong>Branch:</strong>  {{ student.branch }}</li>
+                              </ul>
+                              
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    <a type="button" class="btn btn-light btn-sm" href="{% url 'update' student.id %}"><i class="fa-solid fa-pen-to-square"></i> Update</a>
                     <button type="button" class="btn btn-light btn-sm"><i class="fa-solid fa-trash"></i> Delete</button>
                 </td>
               </tr>
