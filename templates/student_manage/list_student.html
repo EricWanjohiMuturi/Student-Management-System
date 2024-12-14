@@ -70,11 +70,15 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                           </div>
                           <div class="modal-body">
-                            <p>Are you sure you want to delete the Student Information of: <br><strong>{{student.fname}} {{student.lname}}</strong></p>
+                            <p>Are you sure you want to delete the Student Information of: <strong>{{student.fname}} {{student.lname}}</strong></p>
                           </div>
                           <div class="modal-footer">
-                            <button type="button" class="btn btn-danger">Delete</button>
-                            <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">No</button>
+                            <!-- <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button> -->
+                            <form action="{% url "delete" student.id %}" method="post" class="d-inline">
+                              {% csrf_token %}
+                              <input type="submit" value="Delete" class="btn btn-danger">
+                            </form>
                           </div>
                         </div>
                       </div>
