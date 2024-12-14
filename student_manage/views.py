@@ -18,3 +18,19 @@ def update_student(request, id):
         st = Student.objects.get(pk=id)
         fm=StudentInfoForm(instance=st)
     return render(request, "student_manage/update_student.html", {"form":fm})
+
+def delete_student(request,id):
+    if request.method == 'POST':
+        st=Student.objects.get(pk=id)
+        st.delete()
+        return HttpResponseRedirect("/")
+    
+def add_student(request):
+    if request.method == "POST":
+        fm = StudentInfoForm(request.POST)
+        if fm.is_valid():
+            fm.save()
+            return HttpResponseRedirect("/")
+    else:
+        fm = StudentInfoForm()
+    return render(request, "student_manage/add_student.html", {"form":fm})

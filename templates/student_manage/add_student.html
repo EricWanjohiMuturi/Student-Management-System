@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 offset-3 py-5">
+            <h1 class="text-center">
+                Add New Student
+            </h1>
+            <form action="" method="post">
+                {% csrf_token %}
+                {% for fields in form %}
+                    {{fields.label}}
+                    {{fields}}
+                {% endfor %}
+                <input type="submit" value="Add" class="btn btn-success">
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}
